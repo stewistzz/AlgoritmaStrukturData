@@ -1,4 +1,4 @@
-package StrukturData;
+package jobsheet02;
 
 public class BukuMain {
     public static void main(String[] args) {

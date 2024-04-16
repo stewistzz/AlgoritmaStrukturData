@@ -30,7 +30,6 @@ public class bubbleSort {
         for (int i = 0; i < bilangan.length; i++) {
             System.out.print(bilangan[i] + " ");
         }
-
     }
     
 }
