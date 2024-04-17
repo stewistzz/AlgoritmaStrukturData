@@ -78,13 +78,11 @@ public class MainMhs {
         System.out.println("-------------------------------");
         System.out.println("++++++++++++++++++++++++++++++++");
 
-
         System.out.println("---------------------------------------------");
         System.out.println("Pencarian Data : ");
         System.out.println("Masukkan Nama Mahasiswa yang dicari: ");
         System.out.print("Nama : ");
         String cariNama = String.nextLine();
-
 
         // panggil main untuk method binary algorithm
         System.out.println("======================================");
