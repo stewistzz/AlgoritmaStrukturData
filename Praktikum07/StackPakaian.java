@@ -81,8 +81,10 @@ public class StackPakaian
         System.out.println("isi stack : ");
         for (int i = top; i >= 0; i--)
         {
-            System.out.println(data[i].jenis + " " + data[i].warna + " " + data[i].merk + " " + data[i].ukuran + " " + data[i].harga + " ");    
+            System.out.println("-------------------------------------------------------------------------------------------------");
+            System.out.println("| " + data[i].jenis + "\t|\t" + data[i].warna + "\t|\t" + data[i].merk + "\t|\t" + data[i].ukuran + "\t|\t" + data[i].harga + "|");    
         }
+        System.out.println("-------------------------------------------------------------------------------------------------");
     }
 
     // method
@@ -101,4 +103,46 @@ public class StackPakaian
             System.out.println("Stack masih kosong");
         }
     }
+
+    // menambahkan method search getMax untuk mencari harga pakaian tertinggi
+    // menggunakan sorting untuk membandingkan harga
+    void getMax()
+    {
+        // jika pakaian tidak kosng
+        if (!isEmpty())
+        {
+            // set nilai max awal
+            Pakaian maxPakaian = data[0]; // karena data 0 sementara data terbesar maka looping dimuali dari indeks ke-1
+            for (int i = 1; i <= top; i++) // top berupa indeks
+            {
+                if (data[i].harga > maxPakaian.harga) 
+                {
+                    maxPakaian = data[i];
+                }    
+            }
+            System.out.println("Pakaian dengan harga tertinggi:");
+            System.out.println("---------------------------------------------------------------------------------");
+            System.out.println("|"+ maxPakaian.jenis + "\t|\t" + maxPakaian.warna + "\t|\t" + maxPakaian.merk + "\t|\t" + maxPakaian.ukuran + "\t|\t" + maxPakaian.harga + "|");
+            System.out.println("---------------------------------------------------------------------------------");
+        }
+        else
+        {
+            System.out.println("Stack kosong");
+        }
+    }
+
+    public void getMaxPakaian() {
+        double hargaMax =0;
+        int indexMax = -1;
+        for (int i = top; i >= 0; i--) {
+            if(data[i].harga > hargaMax ){
+                hargaMax = data[i].harga;
+                indexMax = i;
+            }
+        }
+        System.out.println(data[indexMax].jenis + " " + data[indexMax].warna + " " + data[indexMax].merk + " " + data[indexMax].ukuran + " "
+        + data[indexMax].harga + " ");
+        System.out.println();
+    }
+
 }

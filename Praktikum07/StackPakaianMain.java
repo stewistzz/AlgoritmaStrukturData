@@ -2,10 +2,12 @@ package Praktikum07;
 
 import java.util.Scanner;
 
+import Praktikum07.Tugas.StackStruckBelanja;
+
 public class StackPakaianMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        StackPakaian stk = new StackPakaian(5);
+        StackPakaian stk = new StackPakaian(20);
         // scanner
 
         while (true) {
@@ -16,7 +18,8 @@ public class StackPakaianMain {
             System.out.println("2. pop (ambil data paling atas)");
             System.out.println("3. peek (memeriksa elemen paling atas)");
             System.out.println("4. print (mencetak semua stack)");
-            System.out.println("5. Keluar");
+            System.out.println("5. Tampilkan urutan harga dari yang tertinggi");
+            System.out.println("6. exit");
             System.out.println("=========================================");
             System.out.print("Masukkan pilihan Anda: ");
             int pilihan = sc.nextInt();
@@ -34,6 +37,9 @@ public class StackPakaianMain {
                     break;
                 case 4:
                     stk.print();
+                    break;
+                case 5: 
+                    stk.getMaxPakaian();
                     break;
                 default:
                     System.exit(0); // Keluar dari program
@@ -93,4 +99,6 @@ public class StackPakaianMain {
             sc.nextLine(); // Konsumsi newline setelah membaca char
         } while (pilih == 'y');
     }
+
+   
 }

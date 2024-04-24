@@ -89,5 +89,4 @@ public class daftarMahasiswaberprestasi {
             listMhs[j] = temp;
         }
     }
-
 }
