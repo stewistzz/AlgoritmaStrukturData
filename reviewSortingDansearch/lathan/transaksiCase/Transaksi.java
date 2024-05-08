@@ -17,12 +17,12 @@ public class Transaksi {
     int idx;
 
     // tambah transaksi
-    void tambahTransaksi()
-    {
-        if (idx < data.length)
-        {
+    // void tambahTransaksi()
+    // {
+    //     if (idx < data.length)
+    //     {
             
-        }
-    }
+    //     }
+    // }
 
 }
