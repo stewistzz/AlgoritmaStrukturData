@@ -4,7 +4,7 @@ import praktikum06.sortMain08;
 
 public class LinkedList {
     // atribut
-    Node head, tail;
+    Node head;
 
     // method isEmpty untuk cek kondisi jika kosong
     boolean isEmpty() {
@@ -41,7 +41,6 @@ public class LinkedList {
             newNode.next = head;
             head = newNode; // disini merubah newNode menjadi head
         }
-
     }
 
     // method addLast()
@@ -88,7 +87,7 @@ public class LinkedList {
 
     // method insertBefore
     public void insertBefore(int key, int input) // key digunakan untuk petunjuk dari indeks awtau posisi dari node yang
-                                                // ingin ditambahkan
+                                                 // ingin ditambahkan
     {
         Node newNode = new Node(input, null);
 
@@ -104,8 +103,7 @@ public class LinkedList {
                     if (sebelum == null) {
                         newNode.next = head;
                         head = newNode;
-                    }
-                    else{
+                    } else {
                         newNode.next = currentNode;
                         sebelum.next = newNode;
                     }
@@ -119,12 +117,33 @@ public class LinkedList {
         }
     }
 
-    // method insertAD
-    public void insertAt(int indeks, int input)
-    {
+    // method insertAt
+    public void insertAt(int indeks, int input) {
+        // buat node baru
+        Node newNode = new Node(input, null); // sebagai node yang baru diinputkan
+        Node currentNode = head; // sebagai head dari node
+        int currentIndex = 0; // petunjuk indeks awal dari linked list
 
+        // kokndisi jika indeks yang diisikan adalah 0
+        if (indeks == 0) {
+            newNode.next = head;
+            head = newNode;
+        }
+
+
+        while (currentNode != null) {
+            if (currentIndex == indeks - 1) {
+                // Node yang ingin ditambahkan berada di tengah atau akhir linked list
+                newNode.next = currentNode.next;
+                currentNode.next = newNode;
+                return;
+            }
+            currentIndex++;
+            currentNode = currentNode.next;
+        }
+
+        System.out.println("Indeks melebihi panjang linked list.");
     }
-
 
     // untuk menghapus, kita perlu menangkap data node terlebih dahulu
     // mengembalikan nilai elemen di dalam node pada index tertentu
@@ -215,5 +234,39 @@ public class LinkedList {
             }
         }
     }
+    // new removeaAt
+    public void removeAt(int indeks)
+    {
+        // node sementara, node sebelumnya dan indeks pada node untuk pentunjuk indeksnya
+        Node currentNode = head;
+        Node sebelum = null;
+        int posisiNode = 0; // default indeks awal
 
+        // jika linked list kosong
+        if (isEmpty())
+        {
+            System.out.println("Linked list masih kosong.");    
+        }
+
+        // kondisi untuk awal ketika penghapusan dari indeks 0
+        if (indeks == 0) 
+        {
+            // lakukan pemanggilan method hapus awal
+            removeFirst(); 
+        }
+        // perulangan untuk menghapus data pada urutan tengah hingga akhir linkedlist
+        while (currentNode != null) // kondisi jika head ada
+        {
+            // pengkondisian
+            if (posisiNode == indeks)//kondisi jika int indeks yang dicari sama dengan posisi
+            {
+                sebelum.next = currentNode.next;
+                return;
+            }
+            sebelum = currentNode;
+            currentNode = currentNode.next;
+            posisiNode++;
+        }
+        System.out.println("Indeks melebihi panjang linked list.");
+    }
 }

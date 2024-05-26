@@ -79,8 +79,6 @@ public class PencarianMahasiswa08 {
         }
     }
 
-
-
     // method baru untuk pencarian berdasarkan nama
     public int FindBinarySearchNama(String cari, int left, int right, int count) {
         // declare mid
